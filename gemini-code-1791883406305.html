@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS READING MOCK TEST - Ms Lê Hằng English</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --primary: #1e88e5;
+      --pink: #ff4d79;
+      --teal: #00cba9;
+      --text: #2d3748;
+      --muted: #64748b;
+      --card: #ffffff;
+      --card-shadow: 0 10px 25px rgba(74, 126, 185, 0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
+    body {
+      background: linear-gradient(180deg, #dcf2ff 0%, #c4e4fe 45%, #dff1fd 80%, #edf7ff 100%);
+      min-height: 100vh;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 14px 16px 50px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .bg-sun {
+      position: fixed; top: 30px; left: -45px; width: 190px; height: 190px;
+      background: radial-gradient(circle, #ffeaa7 35%, rgba(255, 234, 167, 0.6) 55%, rgba(255, 234, 167, 0) 75%);
+      border-radius: 50%; z-index: 0; pointer-events: none;
+    }
+    .bg-cloud-plane {
+      position: fixed; top: 65px; right: 12%; font-size: 22px; opacity: 0.65;
+      pointer-events: none; z-index: 0; animation: floatPlane 20s linear infinite;
+    }
+    @keyframes floatPlane { from { transform: translateX(100px); } to { transform: translateX(-100vw); } }
+    .bg-city-skyline {
+      position: fixed; bottom: 0; left: 0; width: 100%; height: 85px;
+      background: repeating-linear-gradient(90deg, rgba(186, 219, 248, 0.45) 0px, rgba(186, 219, 248, 0.45) 28px, rgba(164, 205, 242, 0.45) 28px, rgba(164, 205, 242, 0.45) 60px);
+      clip-path: polygon(0% 45%, 5% 45%, 5% 20%, 12% 20%, 12% 60%, 18% 60%, 18% 30%, 25% 30%, 25% 55%, 32% 55%, 32% 15%, 40% 15%, 40% 50%, 48% 50%, 48% 25%, 55% 25%, 55% 65%, 62% 65%, 62% 35%, 70% 35%, 70% 18%, 78% 18%, 78% 50%, 85% 50%, 85% 28%, 92% 28%, 92% 60%, 100% 60%, 100% 100%, 0% 100%);
+      z-index: 0; pointer-events: none;
+    }
+    .app-shell { width: 100%; max-width: 1400px; display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; }
+    .top-bar {
+      background: var(--card); border-radius: 24px; box-shadow: var(--card-shadow);
+      padding: 8px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 2px solid #ffffff;
+    }
+    .badge { font-weight: 800; font-size: 13.5px; padding: 5px 14px; border-radius: 999px; color: #fff; display: inline-flex; align-items: center; gap: 6px; }
+    .badge-pink { background: var(--pink); }
+    .badge-teal { background: var(--teal); }
+    .hotline-banner { flex: 1; font-size: 13px; font-weight: 700; color: #334155; text-align: center; }
+    .hotline-banner b { color: #e11d48; }
+    .hero-card {
+      background: var(--card); border-radius: 24px; box-shadow: var(--card-shadow);
+      padding: 14px 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border: 2px solid #ffffff;
+    }
+    .hero-title { font-size: 19px; font-weight: 900; color: #1e88e5; }
+    .hero-sub { font-size: 12.5px; font-weight: 700; color: var(--muted); }
+    .timer-box {
+      display: flex; align-items: center; gap: 8px; background: #fdf4ff; border: 2px solid #f472b6; padding: 5px 14px; border-radius: 50px;
+    }
+    .timer-txt { font-size: 19px; font-weight: 900; color: #be185d; }
+    .btn-timer { background: #ec4899; color: #fff; border: none; padding: 5px 12px; border-radius: 50px; font-weight: 800; font-size: 12px; cursor: pointer; }
+    .progress-bar-wrap { width: 100%; background: #f1f5f9; height: 8px; border-radius: 999px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #ec4899, #8b5cf6, #00cba9); transition: width 0.3s; }
+    .tab-bar { display: flex; gap: 8px; }
+    .tab-btn {
+      flex: 1; padding: 10px 14px; border: none; background: var(--card); border-radius: 14px;
+      font-weight: 800; font-size: 13.5px; color: var(--muted); cursor: pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.03); transition: all 0.2s;
+    }
+    .tab-btn.active { background: #1e88e5; color: #fff; box-shadow: 0 4px 14px rgba(30, 136, 229, 0.35); transform: translateY(-2px); }
+    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; height: calc(100vh - 230px); min-height: 550px; }
+    .pane {
+      background: var(--card); border-radius: 24px; box-shadow: var(--card-shadow);
+      overflow-y: auto; padding: 20px; border: 2px solid #ffffff; scroll-behavior: smooth;
+    }
+    .pane::-webkit-scrollbar { width: 7px; }
+    .pane::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+    .passage-head { border-bottom: 2px dashed #e2e8f0; padding-bottom: 10px; margin-bottom: 14px; }
+    .p-title { font-size: 20px; font-weight: 900; color: #1e88e5; text-transform: uppercase; }
+    .p-sub { font-size: 13px; font-style: italic; color: #64748b; margin-top: 3px; }
+    .para-box {
+      margin-bottom: 14px; line-height: 1.68; font-size: 14.5px; color: #334155;
+      background: #fbfdff; padding: 12px 14px; border-radius: 14px; border-left: 4px solid #60a5fa; border: 1px solid #f1f5f9;
+    }
+    .para-lbl { font-weight: 900; color: #1e88e5; margin-right: 6px; }
+    .btn-trans {
+      margin-top: 8px; background: #fdf2f8; border: 1px solid #fbcfe8; color: #db2777;
+      padding: 3px 10px; border-radius: 20px; font-size: 11.5px; font-weight: 700; cursor: pointer;
+    }
+    .trans-box {
+      display: none; margin-top: 8px; padding: 10px 12px; background: #fff1f2;
+      border-radius: 8px; font-size: 13px; line-height: 1.55; color: #9f1239; border-left: 3px solid #f43f5e;
+    }
+    .flash-target { background: #fde047 !important; color: #000 !important; border-radius: 4px; }
+    .user-highlighted {
+      background-color: #ddd6fe !important; color: inherit !important; font-weight: inherit !important;
+      letter-spacing: inherit !important; padding: 0 !important; margin: 0 !important; border-radius: 3px; cursor: pointer; display: inline;
+    }
+    .sec-banner {
+      background: linear-gradient(90deg, #ede9fe, #fae8ff); padding: 8px 12px; border-radius: 12px;
+      font-size: 13px; font-weight: 800; color: #6b21a8; margin-bottom: 12px; border-left: 4px solid #a855f7;
+    }
+    .q-card {
+      background: #fff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 12px 14px; margin-bottom: 12px; transition: all 0.2s;
+    }
+    .q-top { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+    .q-num {
+      font-weight: 900; color: #fff; background: #1e88e5; width: 26px; height: 26px;
+      border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0;
+    }
+    .q-txt { flex: 1; font-size: 14px; font-weight: 700; color: #1e293b; line-height: 1.4; }
+    .sel-box, .inp-box {
+      width: 100%; padding: 8px 12px; border-radius: 10px; border: 2px solid #cbd5e1;
+      font-size: 13.5px; font-weight: 700; outline: none; transition: all 0.2s;
+    }
+    .sel-box:focus, .inp-box:focus { border-color: #1e88e5; }
+    .sel-box.correct, .inp-box.correct { border-color: #22c55e; background: #f0fdf4; color: #166534; }
+    .sel-box.wrong, .inp-box.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+    .fill-row { display: flex; gap: 6px; margin-top: 6px; }
+    .btn-chk {
+      background: #1e88e5; color: #fff; border: none; padding: 8px 14px; border-radius: 10px; font-weight: 800; font-size: 12.5px; cursor: pointer;
+    }
+    .mc-grid { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+    .mc-opt {
+      background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 8px 12px;
+      text-align: left; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s;
+    }
+    .mc-opt:hover:not(.disabled) { background: #f1f5f9; }
+    .mc-opt.correct { background: #dcfce7 !important; border-color: #22c55e !important; color: #15803d !important; font-weight: 800; }
+    .mc-opt.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
+    .detailed-exp-card {
+      display: none; background: #ffffff; border: 2px solid #fed7aa; border-radius: 16px; padding: 16px 18px; margin-top: 12px; box-shadow: 0 4px 16px rgba(249, 115, 22, 0.08); animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+    .exp-main-title { color: #c2410c; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .btn-loc { background: #7c3aed; color: #fff; border: none; padding: 4px 10px; border-radius: 20px; font-size: 11.5px; font-weight: 800; cursor: pointer; }
+    .exp-trans-quote { background: #fffbeb; border-radius: 10px; border-left: 5px solid #f59e0b; padding: 10px 14px; font-size: 13.5px; color: #78350f; margin-bottom: 12px; }
+    .exp-step-title { font-size: 13.8px; font-weight: 800; color: #b45309; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+    .options-breakdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 12px; }
+    .option-chip { background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; font-size: 12.5px; font-weight: 700; color: #334155; }
+    .option-chip b { color: #2563eb; }
+    .option-chip.highlight b { color: #059669; }
+    .badge-why-correct { background: #dcfce7; color: #15803d; padding: 2px 8px; border-radius: 6px; font-size: 12.5px; font-weight: 900; display: inline-flex; align-items: center; gap: 4px; }
+    .badge-why-wrong { background: #fee2e2; color: #b91c1c; padding: 2px 8px; border-radius: 6px; font-size: 12.5px; font-weight: 900; display: inline-flex; align-items: center; gap: 4px; }
+    .exp-bullet-desc { font-size: 13px; color: #334155; line-height: 1.55; margin: 4px 0 12px 16px; }
+    .syn-tag { background: #e0f2fe; color: #0369a1; padding: 1px 6px; border-radius: 4px; font-weight: 700; font-size: 11px; display: inline-block; }
+    .cambridge-section { border-top: 1.5px dashed #fed7aa; padding-top: 10px; margin-top: 8px; }
+    .cambridge-title { font-size: 13.5px; font-weight: 800; color: #ea580c; margin-bottom: 4px; }
+    .cambridge-guide-text { font-size: 12.5px; color: #475569; line-height: 1.4; margin-bottom: 8px; }
+    .cambridge-btn-group { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
+    .cambridge-pill-btn {
+      background: linear-gradient(90deg, #ff5770 0%, #22c55e 100%); color: #ffffff; text-decoration: none;
+      font-size: 12px; font-weight: 800; padding: 5px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px;
+    }
+    .footer-promo {
+      background: linear-gradient(135deg, #f06292 0%, #b258cf 45%, #2575fc 100%); border-radius: 24px;
+      padding: 14px 20px; display: flex; align-items: center; gap: 14px; color: #fff; margin-top: 6px; box-shadow: 0 10px 25px rgba(178, 88, 207, 0.25);
+    }
+    .circle-icon { width: 44px; height: 44px; border-radius: 50%; background: #ff5982; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .pill-badge { background: #fff; color: #1e88e5; font-weight: 900; font-size: 13.5px; padding: 2px 12px; border-radius: 999px; display: inline-flex; margin-left: 4px; }
+    @media (max-width: 900px) { .split-grid { grid-template-columns: 1fr; height: auto; } .pane { height: 460px; } .hotline-banner { display: none; } }
+  </style>
+</head>
+<body>
+
+  <div class="bg-sun"></div>
+  <div class="bg-cloud-plane">✈️ ☁️</div>
+  <div class="bg-city-skyline"></div>
+
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="badge badge-pink" id="scoreBadge">★ 0/40</div>
+      <div class="hotline-banner">
+        <span>PH HS đăng kí học tiếng anh Khối 1 đến 12, IELTS vui lòng liên hệ <b>Ms Lê Hằng English</b> —</span>
+        <b>☎ Zalo: 0584 965 348</b>
+        <span>— Online + Offline tại Linh Đàm!</span>
+      </div>
+      <div class="badge badge-teal" id="countBadge">0/40 đã làm</div>
+    </header>
+
+    <section class="hero-card">
+      <div>
+        <div class="hero-title">🎯 IELTS READING MOCK TEST · MS LÊ HẰNG ENGLISH</div>
+        <div class="hero-sub">Hệ thống bài tập web tương tác · Chấm tự động & Giải thích chi tiết 9.0</div>
+      </div>
+      <div class="timer-box">
+        <span>⏳</span>
+        <span class="timer-txt" id="timerTxt">20:00</span>
+        <button class="btn-timer" id="btnTimer" onclick="toggleTimer()">BẮT ĐẦU</button>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+    </section>
+
+    <nav class="tab-bar">
+      <button class="tab-btn active" id="tab1-btn" onclick="switchTab(1)">🎻 Passage 1: Antonio Stradivari (Q1-13)</button>
+      <button class="tab-btn" id="tab2-btn" onclick="switchTab(2)">❄️ Passage 2: Halley VI (Q14-26)</button>
+      <button class="tab-btn" id="tab3-btn" onclick="switchTab(3)">🌿 Passage 3: Hidcote Garden (Q27-40)</button>
+    </nav>
+
+    <div class="split-grid">
+      <!-- CỘT BÊN TRÁI: NỘI DUNG BÀI ĐỌC DIỄN GIẢI CHUẨN SƯ PHẠM -->
+      <div class="pane" id="passagePane">
+        
+        <!-- PASSAGE 1 -->
+        <div id="p-content-1">
+          <div class="passage-head">
+            <h1 class="p-title">Antonio Stradivari – violin maker supreme</h1>
+            <p class="p-sub">Huyền thoại làm đàn vĩ cầm đỉnh cao và những di sản nghệ thuật vô giá</p>
+          </div>
+          <div class="para-box" id="p1-1">
+            <span class="para-lbl">[Section 1]</span>
+            <span>From the 1670s onwards, the Italian violin maker Antonio Stradivari (1644-1737) masterfully balanced artistic vision with demanding commercial realities from his Cremona workshop. Meeting the refined standards of Europe's musical elite involved navigating severe logistics, raw material procurement, and rigorous craftsmanship.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-1-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-1-tr">Từ những năm 1670 trở đi, nghệ nhân làm đàn người Ý Antonio Stradivari đã kết hợp hoàn hảo giữa tầm nhìn nghệ thuật và các đòi hỏi khắt khe của thương mại tại xưởng Cremona, đáp ứng xuất sắc yêu cầu của tầng lớp tinh hoa âm nhạc châu Âu.</div>
+          </div>
+          <div class="para-box" id="p1-2">
+            <span class="para-lbl">[Section 2]</span>
+            <span>His instruments dominated the European market from 1700 until his death in 1737. Although his workshop experienced reduced output after 1727—allowing contemporary makers like Bartolomeo Giuseppe Guarneri to gain market share—Stradivari's lifetime productivity and finish quality easily surpassed all Cremonese peers combined.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-2-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-2-tr">Các nhạc cụ của ông thống trị thị trường từ năm 1700 đến năm 1737. Dù sản lượng của xưởng giảm sau năm 1727 (tạo điều kiện cho Guarneri lấp chỗ trống), năng suất và chất lượng của Stradivari vẫn vượt trội hơn tất cả các xưởng khác tại Cremona cộng lại.</div>
+          </div>
+          <div class="para-box" id="p1-3">
+            <span class="para-lbl">[Section 3]</span>
+            <span>Between 1709 and 1717, production peaked as Stradivari crafted instruments based on his most celebrated designs. Notable among them was the 1715 Lipinski model, celebrated as an apex of classical stringed design. During 1714-1716, the workshop yielded over sixteen instruments per year with extraordinary consistency and premium materials.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-3-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-3-tr">Giai đoạn 1709-1717 là thời kỳ hoàng kim với các mẫu thiết kế lừng danh, tiêu biểu là mẫu Lipinski năm 1715. Xưởng đã sản xuất hơn 16 nhạc cụ mỗi năm với tay nghề thủ công và chất lượng vật liệu hoàn hảo.</div>
+          </div>
+          <div class="para-box" id="p1-4">
+            <span class="para-lbl">[Section 4]</span>
+            <span>Historical analysis suggests Stradivari undoubtedly encountered the earlier models of local master families such as the Amati and Rugeri, whose traditional Cremonese techniques influenced his foundational works.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-4-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-4-tr">Các phân tích cho thấy Stradivari chắc chắn đã tiếp cận các mẫu đàn đi trước của dòng họ Amati và Rugeri, và phương pháp truyền thống này thể hiện rõ trong các tác phẩm thời kỳ đầu của ông.</div>
+          </div>
+          <div class="para-box" id="p1-5">
+            <span class="para-lbl">[Section 5]</span>
+            <span>In the 1690s, he experimented with a longer form than contemporary Cremonese norms, likely informed by older instruments from Brescian makers such as Maggini (which were already regarded as antiques). These elongated designs generated a distinctive deeper sound.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-5-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-5-tr">Vào thập niên 1690, ông thử nghiệm phom đàn dài hơn (longer form), chịu ảnh hưởng từ các cây đàn cổ (antiques) vùng Brescia của Maggini để tạo ra âm thanh trầm sâu hơn (deeper sound).</div>
+          </div>
+          <div class="para-box" id="p1-6">
+            <span class="para-lbl">[Section 6]</span>
+            <span>He set aside this Long Pattern model in 1699, returning a decade later to broader dimensions that offered unprecedented internal airspace and resonance.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-6-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-6-tr">Ông ngừng làm mẫu phom dài vào năm 1699, nhưng 10 năm sau đã quay lại với thiết kế bề ngang rộng hơn để tăng thể tích không khí cộng hưởng bên trong đàn.</div>
+          </div>
+          <div class="para-box" id="p1-7">
+            <span class="para-lbl">[Section 7]</span>
+            <span>The immense acoustic projection of his mature violins laid the foundation for modern solo performances in expansive 3,000-seat auditoriums, allowing concert music to reach democratic public audiences beyond early aristocratic patrons. His unchallenged reputation remains unmatched among craftsmen.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-7-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-7-tr">Độ vang lớn của các cây đàn giúp phục vụ các buổi độc tấu vĩ cầm (solo violin) trong các đại khán phòng 3.000 chỗ ngồi hiện đại. Danh tiếng đỉnh cao (reputation) của ông cho đến nay vẫn chưa ai sánh kịp.</div>
+          </div>
+        </div>
+
+        <!-- PASSAGE 2 -->
+        <div id="p-content-2" style="display:none;">
+          <div class="passage-head">
+            <h1 class="p-title">Antarctic architecture: Halley VI</h1>
+            <p class="p-sub">Căn cứ nghiên cứu di động Halley VI trên thềm băng trôi Nam Cực</p>
+          </div>
+          <div class="para-box" id="p2-A">
+            <span class="para-lbl">[Paragraph A]</span>
+            <span>In 2004, British architect Hugh Broughton entered a high-profile competition to design the Halley VI research station atop a drifting Antarctic ice shelf. Organizers sought expertise in extreme logistics and harsh weather—criteria Broughton completely lacked, yet his visionary concept won.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-A-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-A-tr">Năm 2004, kiến trúc sư Hugh Broughton đã tham gia và chiến thắng cuộc thi thiết kế trạm Halley VI dù chưa hề có kinh nghiệm thực tế về khí hậu khắc nghiệt hay hậu cần phức tạp.</div>
+          </div>
+          <div class="para-box" id="p2-B">
+            <span class="para-lbl">[Paragraph B]</span>
+            <span>Completed in 2012, Halley VI features eight conjoined pods elevated on hydraulic legs equipped with heavy-duty skis, allowing bulldozers to tow the entire facility away from shelf fissures. Construction occurred strictly during 12-week summer windows using materials delivered by ship from South Africa.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-B-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-B-tr">Hoàn thành năm 2012, trạm gồm 8 khoang (pods) nối liền nhau, gắn ván trượt cho phép xe ủi đất (bulldozers) kéo di chuyển. Việc thi công chỉ diễn ra trong 12 tuần mùa hè (summer) với vật tư vận chuyển bằng tàu biển (ship).</div>
+          </div>
+          <div class="para-box" id="p2-C">
+            <span class="para-lbl">[Paragraph C]</span>
+            <span>To combat sensory deprivation during 105 sunless winter days, Broughton integrated natural cedarwood scents, dynamic daylight-simulating lighting, and an expansive recreation module with pool tables and mini-golf.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-C-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-C-tr">Để chống trầm cảm trong 105 ngày đêm vùng cực, trạm sử dụng hương gỗ tuyết tùng, đèn mô phỏng nhịp mặt trời và khu sinh hoạt chung có bàn bi-a, sân gôn mini.</div>
+          </div>
+          <div class="para-box" id="p2-D">
+            <span class="para-lbl">[Paragraph D]</span>
+            <span>Scientific research covers ozone and space weather. In 2014, a 19-hour total electrical blackout plunged the station into sub-zero peril, freezing boiling water instantly when tossed into the air.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-D-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-D-tr">Trạm nghiên cứu khí tượng và tầng ozone. Năm 2014, sự cố mất điện kéo dài 19 giờ giữa cái lạnh thấu xương đã đặt căn cứ vào tình trạng khẩn cấp.</div>
+          </div>
+          <div class="para-box" id="p2-E">
+            <span class="para-lbl">[Paragraph E]</span>
+            <span>Historical polar huts were notorious for damp, cramped squalor where explorers suffered severe cabin fever, as architect Pip Cheshire observed. Halley VI represents a stark departure toward psychological wellbeing.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-E-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-E-tr">Các trạm cũ thời đầu thám hiểm rất bẩn thỉu, chật chội và dễ gây ức chế tâm lý (cabin fever), trái ngược hoàn toàn với thiết kế tiện nghi hiện đại của Halley VI.</div>
+          </div>
+          <div class="para-box" id="p2-F">
+            <span class="para-lbl">[Paragraph F]</span>
+            <span>Broughton's success led to commissions for a Spanish Antarctic base and consulting for NASA on long-duration astronaut habitat psychology.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-F-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-F-tr">Thành công này giúp Broughton được mời thiết kế trạm nghiên cứu cho Tây Ban Nha và làm cố vấn cho NASA về thiết kế không gian sống cho phi hành gia.</div>
+          </div>
+          <div class="para-box" id="p2-G">
+            <span class="para-lbl">[Paragraph G]</span>
+            <span>Architect Sam Jacob remarks that Antarctica represents Earth's closest proxy to alien planetary conditions, making Broughton's principles invaluable for future space colonization.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-G-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-G-tr">Kiến trúc sư Sam Jacob nhận xét Nam Cực là nơi giống với điều kiện ngoài không gian nhất, cung cấp ý tưởng quý giá cho việc xây dựng tiền đồn vũ trụ.</div>
+          </div>
+        </div>
+
+        <!-- PASSAGE 3 -->
+        <div id="p-content-3" style="display:none;">
+          <div class="passage-head">
+            <h1 class="p-title">Lawrence Johnston and Hidcote Garden</h1>
+            <p class="p-sub">Hành trình kiến tạo khu vườn kiệt tác Hidcote tại Anh Quốc</p>
+          </div>
+          <div class="para-box" id="p3-A">
+            <span class="para-lbl">[Paragraph A]</span>
+            <span>Hidcote Manor Garden in the Cotswolds saw its public attendance soar from a modest 600 visitors in 1949 to over 150,000 annually today, raising significant conservation revenue for the National Trust.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-A-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-A-tr">Khu vườn Hidcote thu hút từ vỏn vẹn 600 khách năm 1949 lên tới hơn 150.000 lượt khách mỗi năm hiện nay, mang lại nguồn thu lớn cho quỹ National Trust.</div>
+          </div>
+          <div class="para-box" id="p3-B">
+            <span class="para-lbl">[Paragraph B]</span>
+            <span>Created by American expatriate Major Lawrence Johnston starting in 1907, Hidcote matured into a masterpiece of garden architecture, rightfully ranked alongside Vita Sackville-West's famous Sissinghurst.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-B-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-B-tr">Được Lawrence Johnston khởi công từ năm 1907, Hidcote là một kiệt tác sánh ngang với khu vườn danh tiếng Sissinghurst.</div>
+          </div>
+          <div class="para-box" id="p3-C">
+            <span class="para-lbl">[Paragraph C]</span>
+            <span>In later years, head gardener Nancy Lindsay was rumored to have destroyed Johnston's garden diaries after disputes. Subsequent National Trust gardener Graham Thomas redesigned extensive beds, earning public admiration though visitors often attributed his work to Johnston. Designer Russell Page had previously lauded original features that Thomas altered.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-C-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-C-tr">Người làm vườn Nancy Lindsay từng có mâu thuẫn và bị nghi đã hủy nhật ký của Johnston. Người kế nhiệm Graham Thomas đã phục dựng lại các luống hoa, và du khách thường vô tình nghĩ rằng đó là thiết kế của chính Johnston.</div>
+          </div>
+          <div class="para-box" id="p3-D">
+            <span class="para-lbl">[Paragraph D]</span>
+            <span>In 2002, Johnston's lost 1920s diaries unexpectedly resurfaced via an anonymous sender following public appeals for original plans. Crucially, the journals contained intricate drawings and planting layouts across seasons while remaining largely silent on his private life.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-D-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-D-tr">Năm 2002, các cuốn nhật ký thất lạc đã được gửi lại ẩn danh sau các buổi kêu gọi tìm kiếm bản thiết kế gốc (original plans). Tài liệu chứa các bản vẽ phác thảo chi tiết (drawings) và hầu như không đề cập đến đời tư (private life).</div>
+          </div>
+          <div class="para-box" id="p3-E">
+            <span class="para-lbl">[Paragraph E]</span>
+            <span>The notebooks detailed visiting society figures and lists of skilled craftsmen like stone masons and glaziers, offering rich historical texture.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-E-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-E-tr">Nhật ký ghi lại danh sách những vị khách nổi tiếng đến thăm (visitors) và địa chỉ của các nghệ nhân thủ công (craftsmen) như thợ đá, thợ kính.</div>
+          </div>
+          <div class="para-box" id="p3-F">
+            <span class="para-lbl">[Paragraph F]</span>
+            <span>A generous endowment enabled restoration based on these discoveries, though acquiring the exact heritage plant species remains an ongoing horticultural challenge.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-F-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-F-tr">Khoản tài trợ giúp tôn tạo lại khu vườn dựa trên tài liệu tìm thấy, dù việc tìm đúng các giống cây cổ xưa vẫn gặp nhiều thách thức.</div>
+          </div>
+          <div class="para-box" id="p3-G">
+            <span class="para-lbl">[Paragraph G]</span>
+            <span>Hidcote stands as a living triumph of British landscape art. Johnston was not influenced by Thomas Mawson's conventional approaches; rather, his extensive European travels and unique life background infused Hidcote with its timeless originality.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-G-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-G-tr">Khu vườn là đỉnh cao nghệ thuật cảnh quan Anh. Johnston không hề chịu ảnh hưởng từ Thomas Mawson, mà chính những trải nghiệm và chuyến du hành châu Âu đã tạo nên nét độc bản cho khu vườn.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CỘT BÊN PHẢI: BÀI TẬP VÀ GIẢI THÍCH CHI TIẾT ĐỒNG BỘ 100% ĐÁP ÁN GỐC -->
+      <div class="pane" id="exercisePane">
+        
+        <!-- EXERCISE PASSAGE 1 (Q1 - 13) -->
+        <div id="ex-content-1">
+          <div class="sec-banner">📌 Questions 1–7: TRUE / FALSE / NOT GIVEN</div>
+
+          <div class="q-card" id="card-1">
+            <div class="q-top"><span class="q-num">1</span><span class="q-txt">Stradivari was a good businessman as well as a craftsman.</span><span id="stat-1"></span></div>
+            <select class="sel-box" id="ctrl-1" onchange="checkAnswer(1, 'TRUE', 'p1-1')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-1">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-1')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Stradivari vừa là một thợ thủ công lành nghề vừa là một nhà kinh doanh tài ba.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Dẫn chứng:</b> <i>"successfully applied his inspired vision and enormous attention to detail to the artistic and commercial challenges..."</i></li>
+                <li><b>Lập luận:</b> Ông thành công ở cả phương diện nghệ thuật lẫn thử thách thương mại $\rightarrow$ <b>TRUE</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-2">
+            <div class="q-top"><span class="q-num">2</span><span class="q-txt">The majority of the musical elite wanted the same model of violin.</span><span id="stat-2"></span></div>
+            <select class="sel-box" id="ctrl-2" onchange="checkAnswer(2, 'NOT GIVEN', 'p1-1')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-2">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-1')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Phần lớn giới tinh hoa âm nhạc đều mong muốn cùng một mẫu đàn vĩ cầm.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Lập luận:</b> Bài đọc nói về nhu cầu cao của giới thượng lưu nhưng không hề nhắc đến việc họ có đòi hỏi cùng một mẫu mã giống nhau hay không $\rightarrow$ <b>NOT GIVEN</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-3">
+            <div class="q-top"><span class="q-num">3</span><span class="q-txt">Stradivari produced fewer violins between 1727 and his death in 1737.</span><span id="stat-3"></span></div>
+            <select class="sel-box" id="ctrl-3" onchange="checkAnswer(3, 'TRUE', 'p1-2')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-3">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-2')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Stradivari sản xuất ít đàn hơn trong giai đoạn từ năm 1727 đến khi qua đời năm 1737.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Dẫn chứng:</b> <i>"Somewhat lower production levels from the Stradivari workshop after 1727 left a gap in Cremona..."</i> $\rightarrow$ <b>TRUE</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-4">
+            <div class="q-top"><span class="q-num">4</span><span class="q-txt">Bartolomeo Giuseppe Guarneri attempted to use Stradivari's ideas.</span><span id="stat-4"></span></div>
+            <select class="sel-box" id="ctrl-4" onchange="checkAnswer(4, 'NOT GIVEN', 'p1-2')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-4">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-2')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Guarneri đã cố gắng áp dụng các ý tưởng của Stradivari.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Lập luận:</b> Bài đọc chỉ nhắc Guarneri lấp vào chỗ trống sản lượng, không nói ông có áp dụng ý tưởng của Stradivari hay không $\rightarrow$ <b>NOT GIVEN</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-5">
+            <div class="q-top"><span class="q-num">5</span><span class="q-txt">Other violin companies in Cremona consistently produced violins in greater quantity than the Stradivari workshop.</span><span id="stat-5"></span></div>
+            <select class="sel-box" id="ctrl-5" onchange="checkAnswer(5, 'FALSE', 'p1-2')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-5">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-2')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Các xưởng đàn khác ở Cremona liên tục sản xuất số lượng đàn nhiều hơn xưởng của Stradivari.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Dẫn chứng:</b> <i>"the output from the Stradivari workshop exceeded that of all the other instrument makers in Cremona combined."</i> $\rightarrow$ <b>FALSE</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-6">
+            <div class="q-top"><span class="q-num">6</span><span class="q-txt">Between 1709 and 1717, the Stradivari workshop focused on a few very famous designs.</span><span id="stat-6"></span></div>
+            <select class="sel-box" id="ctrl-6" onchange="checkAnswer(6, 'NOT GIVEN', 'p1-3')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-7">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-3')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Từ năm 1709 đến 1717, xưởng tập trung vào một số ít thiết kế rất nổi tiếng.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Lập luận:</b> Bài đọc nêu xưởng làm đàn dựa trên những mẫu đàn nổi tiếng nhất, không xác nhận số lượng mẫu là nhiều hay chỉ "a few" $\rightarrow$ <b>NOT GIVEN</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-7">
+            <div class="q-top"><span class="q-num">7</span><span class="q-txt">It's likely that Stradivari came across the violins made by the Amati and Rugeri families.</span><span id="stat-7"></span></div>
+            <select class="sel-box" id="ctrl-7" onchange="checkAnswer(7, 'TRUE', 'p1-4')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-7">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-4')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Rất có thể Stradivari đã từng tiếp cận với đàn của dòng họ Amati và Rugeri.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Dẫn chứng:</b> <i>"that Stradivari would have encountered the earlier violin forms of the Amati and Rugeri families in Cremona is to be expected..."</i> $\rightarrow$ <b>TRUE</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sec-banner">📌 Questions 8–13: Complete the notes (ONE WORD AND/OR A NUMBER)</div>
+
+          <div class="q-card" id="card-8">
+            <div class="q-top"><span class="q-num">8</span><span class="q-txt">certain influences in the 1690s led to Stradivari making 8. ________ designs for his initial violins.</span><span id="stat-8"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-8" placeholder="Điền đáp án..."><button class="btn-chk" onclick="checkFill(8, ['longer'], 'p1-5')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-8">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-5')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> longer (dài hơn)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...he began experimenting with a longer form than that of contemporary makers..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-9">
+            <div class="q-top"><span class="q-num">9</span><span class="q-txt">large violins from Brescia were thought to be 9. ________</span><span id="stat-9"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-9" placeholder="Điền đáp án..."><button class="btn-chk" onclick="checkFill(9, ['antiques'], 'p1-5')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-9">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-5')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> antiques (đồ cổ)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...which were already considered antiques in Stradivari's day."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-10">
+            <div class="q-top"><span class="q-num">10</span><span class="q-txt">the sound produced by the Brescian violins was 10. ________ than that of other violins</span><span id="stat-10"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-10" placeholder="Điền đáp án..."><button class="btn-chk" onclick="checkFill(10, ['deeper'], 'p1-5')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-10">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-5')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> deeper (trầm sâu hơn)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...recall some of the deeper sound produced by the Brescian models."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-11">
+            <div class="q-top"><span class="q-num">11</span><span class="q-txt">Stradivari stopped making Long Pattern instruments sometime during 11. ________</span><span id="stat-11"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-11" placeholder="Điền đáp án..."><button class="btn-chk" onclick="checkFill(11, ['1699'], 'p1-6')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-11">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-6')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> 1699</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...he discarded the Long Pattern model in 1699..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-12">
+            <div class="q-top"><span class="q-num">12</span><span class="q-txt">Stradivari made 12. ________ violin performances in large concert halls possible</span><span id="stat-12"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-12" placeholder="Điền đáp án..."><button class="btn-chk" onclick="checkFill(12, ['solo'], 'p1-7')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-12">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-7')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> solo (độc tấu)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...explain the presence of the solo violin in a modern, 3,000-seat concert hall."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-13">
+            <div class="q-top"><span class="q-num">13</span><span class="q-txt">no other craftsman has managed to equal the 13. ________ that Stradivari has gained.</span><span id="stat-13"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-13" placeholder="Điền đáp án..."><button class="btn-chk" onclick="checkFill(13, ['reputation'], 'p1-7')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-13">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-7')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> reputation (danh tiếng)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...no craftsman more worthy of the unchallenged reputation that Antonio Stradivari enjoys."</i></li></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXERCISE PASSAGE 2 (Q14 - 26) -->
+        <div id="ex-content-2" style="display:none;">
+          <div class="sec-banner">📌 Questions 14–18: Matching Information (A–G)</div>
+
+          <div class="q-card" id="card-14">
+            <div class="q-top"><span class="q-num">14</span><span class="q-txt">a description of living conditions in the early days of Antarctic exploration</span><span id="stat-14"></span></div>
+            <select class="sel-box" id="ctrl-14" onchange="checkAnswer(14, 'E', 'p2-E')">
+              <option value="">-- Chọn đoạn văn (A - G) --</option>
+              <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-14">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-E')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> E</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn E mô tả các trạm thám hiểm xưa bẩn thỉu, chật chội và dễ dẫn tới tình trạng ức chế (*cabin fever*).</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-15">
+            <div class="q-top"><span class="q-num">15</span><span class="q-txt">examples of consultants who helped Broughton provide pleasant surroundings on Halley VI</span><span id="stat-15"></span></div>
+            <select class="sel-box" id="ctrl-15" onchange="checkAnswer(15, 'C', 'p2-C')">
+              <option value="">-- Chọn đoạn văn (A - G) --</option>
+              <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-15">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-C')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> C</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn C liệt kê chuyên gia màu sắc (*colour expert*), chuyên gia ánh sáng hỗ trợ tạo không gian dễ chịu.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-16">
+            <div class="q-top"><span class="q-num">16</span><span class="q-txt">a description of a time when technical failure led to an emergency situation</span><span id="stat-16"></span></div>
+            <select class="sel-box" id="ctrl-16" onchange="checkAnswer(16, 'D', 'p2-D')">
+              <option value="">-- Chọn đoạn văn (A - G) --</option>
+              <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-16">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-D')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> D</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn D kể về sự cố mất điện 19 giờ năm 2014 giữa cái rét kỷ lục.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-17">
+            <div class="q-top"><span class="q-num">17</span><span class="q-txt">an information about Broughton's lack of experience before he designed Halley VI</span><span id="stat-17"></span></div>
+            <select class="sel-box" id="ctrl-17" onchange="checkAnswer(17, 'A', 'p2-A')">
+              <option value="">-- Chọn đoạn văn (A - G) --</option>
+              <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-17">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-A')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> A</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn A nêu Broughton không đạt bất kỳ tiêu chí kinh nghiệm nào (*ticked zero of those boxes*) nhưng vẫn thắng thầu.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-18">
+            <div class="q-top"><span class="q-num">18</span><span class="q-txt">a reference to recreational activities on Halley VI</span><span id="stat-18"></span></div>
+            <select class="sel-box" id="ctrl-18" onchange="checkAnswer(18, 'C', 'p2-C')">
+              <option value="">-- Chọn đoạn văn (A - G) --</option>
+              <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-18">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-C')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> C</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Cuối đoạn C nói về hoạt động xem phim, chơi bi-a và sân gôn mini.</li></ul>
+            </div>
+          </div>
+
+          <div class="sec-banner">📌 Questions 19–22: Complete the summary (ONE WORD ONLY)</div>
+
+          <div class="q-card" id="card-19">
+            <div class="q-top"><span class="q-num">19</span><span class="q-txt">consists of 19. ________ that are linked together.</span><span id="stat-19"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-19" placeholder="Điền 1 từ..."><button class="btn-chk" onclick="checkFill(19, ['pods'], 'p2-B')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-19">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-B')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> pods (khoang/đun)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"made of eight conjoined pods..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-20">
+            <div class="q-top"><span class="q-num">20</span><span class="q-txt">transported using 20. ________</span><span id="stat-20"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-20" placeholder="Điền 1 từ..."><button class="btn-chk" onclick="checkFill(20, ['bulldozers'], 'p2-B')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-20">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-B')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> bulldozers (xe ủi đất)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...allowing the entire station to be moved by bulldozers."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-21">
+            <div class="q-top"><span class="q-num">21</span><span class="q-txt">building work could only take place on the site in 21. ________</span><span id="stat-21"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-21" placeholder="Điền 1 từ..."><button class="btn-chk" onclick="checkFill(21, ['summer'], 'p2-B')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-21">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-B')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> summer (mùa hè)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...only the 12 weeks of summer were suitable for construction work..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-22">
+            <div class="q-top"><span class="q-num">22</span><span class="q-txt">brought in by 22. ________</span><span id="stat-22"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-22" placeholder="Điền 1 từ..."><button class="btn-chk" onclick="checkFill(22, ['ship'], 'p2-B')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-22">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-B')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> ship (tàu thủy)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...transported by ship and then built over a few summer seasons."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="sec-banner">📌 Questions 23–26: Matching People (A–D)</div>
+          <div style="font-size:12px; margin-bottom:10px; color:#4b5563; background:#fff; padding:8px 12px; border-radius:8px; border:1px solid #e2e8f0;">
+            <b>List of People:</b> A. George Ferguson and Chris Rapley | B. Tom Welsh | C. Pip Cheshire | D. Sam Jacob
+          </div>
+
+          <div class="q-card" id="card-23">
+            <div class="q-top"><span class="q-num">23</span><span class="q-txt">Living conditions on stations in Antarctica used to be crowded.</span><span id="stat-23"></span></div>
+            <select class="sel-box" id="ctrl-23" onchange="checkAnswer(23, 'C', 'p2-E')">
+              <option value="">-- Chọn nhân vật (A - D) --</option>
+              <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-23">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-E')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> C (Pip Cheshire)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn E dẫn lời Pip Cheshire mô tả cảnh thám hiểm xưa sống chen chúc (*very close contact*).</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-24">
+            <div class="q-top"><span class="q-num">24</span><span class="q-txt">Antarctica is different from everywhere else in the world.</span><span id="stat-24"></span></div>
+            <select class="sel-box" id="ctrl-24" onchange="checkAnswer(24, 'D', 'p2-G')">
+              <option value="">-- Chọn nhân vật (A - D) --</option>
+              <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-24">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-G')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> D (Sam Jacob)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn G dẫn lời Sam Jacob: Nam Cực là nơi ít giống Trái Đất nhất (*least like Earth*).</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-25">
+            <div class="q-top"><span class="q-num">25</span><span class="q-txt">The project would require an architect who had done similar work before.</span><span id="stat-25"></span></div>
+            <select class="sel-box" id="ctrl-25" onchange="checkAnswer(25, 'A', 'p2-A')">
+              <option value="">-- Chọn nhân vật (A - D) --</option>
+              <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-25">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-A')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> A (Ferguson & Rapley)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn A nêu hai người này đặt tiêu chí kiến trúc sư phải có kinh nghiệm thi công ở vùng khắc nghiệt.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-26">
+            <div class="q-top"><span class="q-num">26</span><span class="q-txt">The station may provide a sense of how to build in difficult locations elsewhere.</span><span id="stat-26"></span></div>
+            <select class="sel-box" id="ctrl-26" onchange="checkAnswer(26, 'D', 'p2-G')">
+              <option value="">-- Chọn nhân vật (A - D) --</option>
+              <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-26">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-G')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> D (Sam Jacob)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn G dẫn lời Jacob về việc trạm nghiên cứu gợi mở ý tưởng xây dựng ở các hành tinh ngoài không gian.</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXERCISE PASSAGE 3 (Q27 - 40) -->
+        <div id="ex-content-3" style="display:none;">
+          <div class="sec-banner">📌 Questions 27–31: Choose the correct answer (A, B, C, or D)</div>
+
+          <div class="q-card" id="card-27">
+            <div class="q-top"><span class="q-num">27</span><span class="q-txt">What does the writer say about Hidcote Garden in the first paragraph?</span><span id="stat-27"></span></div>
+            <div class="mc-grid">
+              <button class="mc-opt" onclick="checkMC(27, 'A', 'B', 'p3-A')">A. It is the most popular with overseas visitors.</button>
+              <button class="mc-opt" onclick="checkMC(27, 'B', 'B', 'p3-A')">B. Its popularity has increased over the years.</button>
+              <button class="mc-opt" onclick="checkMC(27, 'C', 'B', 'p3-A')">C. It has increased in size since first opening.</button>
+              <button class="mc-opt" onclick="checkMC(27, 'D', 'B', 'p3-A')">D. It is the largest garden administered by the National Trust.</button>
+            </div>
+            <div class="detailed-exp-card" id="exp-27">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-A')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> B. Its popularity has increased over the years.</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn A so sánh lượng khách từ 600 người năm 1949 lên tới 150.000 người ngày nay $\rightarrow$ độ nổi tiếng tăng dần.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-28">
+            <div class="q-top"><span class="q-num">28</span><span class="q-txt">The writer refers to the Sissinghurst garden in order to</span><span id="stat-28"></span></div>
+            <div class="mc-grid">
+              <button class="mc-opt" onclick="checkMC(28, 'A', 'A', 'p3-B')">A. illustrate Hidcote's significance.</button>
+              <button class="mc-opt" onclick="checkMC(28, 'B', 'A', 'p3-B')">B. highlight two of Johnston's critics.</button>
+              <button class="mc-opt" onclick="checkMC(28, 'C', 'A', 'p3-B')">C. identify one of Johnston's inspirations.</button>
+              <button class="mc-opt" onclick="checkMC(28, 'D', 'A', 'p3-B')">D. compare Hidcote to a garden that no longer exists.</button>
+            </div>
+            <div class="detailed-exp-card" id="exp-28">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-B')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> A. illustrate Hidcote's significance.</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn B đặt Hidcote cạnh kiệt tác Sissinghurst để làm nổi bật tầm vóc và giá trị của nó.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-29">
+            <div class="q-top"><span class="q-num">29</span><span class="q-txt">What does the writer suggest about Nancy Lindsay?</span><span id="stat-29"></span></div>
+            <div class="mc-grid">
+              <button class="mc-opt" onclick="checkMC(29, 'A', 'D', 'p3-C')">A. She was injured in an accident.</button>
+              <button class="mc-opt" onclick="checkMC(29, 'B', 'D', 'p3-C')">B. She was head gardener after Johnston's death.</button>
+              <button class="mc-opt" onclick="checkMC(29, 'C', 'D', 'p3-C')">C. She lacked the necessary gardening talent.</button>
+              <button class="mc-opt" onclick="checkMC(29, 'D', 'D', 'p3-C')">D. She may have had a disagreement with Johnston.</button>
+            </div>
+            <div class="detailed-exp-card" id="exp-29">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-C')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> D. She may have had a disagreement with Johnston.</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn C thuật lại tính khí nhạy cảm và nghi vấn bà đã đốt nhật ký vì bất đồng quan điểm.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-30">
+            <div class="q-top"><span class="q-num">30</span><span class="q-txt">According to the writer, which of the following is true about Graham Thomas?</span><span id="stat-30"></span></div>
+            <div class="mc-grid">
+              <button class="mc-opt" onclick="checkMC(30, 'A', 'A', 'p3-C')">A. The public does not realise the extent of his contribution to the garden.</button>
+              <button class="mc-opt" onclick="checkMC(30, 'B', 'A', 'p3-C')">B. He did not have a sufficiently commercial mind.</button>
+              <button class="mc-opt" onclick="checkMC(30, 'C', 'A', 'p3-C')">C. He revived the garden based on the diaries.</button>
+              <button class="mc-opt" onclick="checkMC(30, 'D', 'A', 'p3-C')">D. The public disliked his part of the garden.</button>
+            </div>
+            <div class="detailed-exp-card" id="exp-30">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-C')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> A. The public does not realise the extent of his contribution...</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn C nêu du khách ngắm hoa do Thomas trồng nhưng cứ ngỡ đó là của Johnston.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-31">
+            <div class="q-top"><span class="q-num">31</span><span class="q-txt">The writer refers to Russell Page in order to</span><span id="stat-31"></span></div>
+            <div class="mc-grid">
+              <button class="mc-opt" onclick="checkMC(31, 'A', 'A', 'p3-C')">A. evaluate Thomas's work.</button>
+              <button class="mc-opt" onclick="checkMC(31, 'B', 'A', 'p3-C')">B. criticise one of Thomas's rivals.</button>
+              <button class="mc-opt" onclick="checkMC(31, 'C', 'A', 'p3-C')">C. give an example of Thomas's approach.</button>
+              <button class="mc-opt" onclick="checkMC(31, 'D', 'A', 'p3-C')">D. correct a common mistake about Thomas.</button>
+            </div>
+            <div class="detailed-exp-card" id="exp-31">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-C')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> A. evaluate Thomas's work.</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn C nhắc lời khen của Page về căn nhà mùa hè để so sánh với quyết định dỡ bỏ sau đó của Thomas.</li></ul>
+            </div>
+          </div>
+
+          <div class="sec-banner">📌 Questions 32–36: Complete the summary (Words A–I)</div>
+          <div style="font-size:12px; margin-bottom:10px; color:#4b5563; background:#fff; padding:8px 12px; border-radius:8px; border:1px solid #e2e8f0;">
+            A. drawings | B. plants | C. private life | D. original plans | E. costs | F. craftsmen | G. visitors | H. books | I. seasons
+          </div>
+
+          <div class="q-card" id="card-32">
+            <div class="q-top"><span class="q-num">32</span><span class="q-txt">As a result of talks of the garden's 32. ________, Johnston's diaries were returned...</span><span id="stat-32"></span></div>
+            <select class="sel-box" id="ctrl-32" onchange="checkAnswer(32, 'D', 'p3-D')">
+              <option value="">-- Chọn từ (A - I) --</option>
+              <option value="A">A. drawings</option><option value="B">B. plants</option><option value="C">C. private life</option>
+              <option value="D">D. original plans</option><option value="E">E. costs</option><option value="F">F. craftsmen</option>
+              <option value="G">G. visitors</option><option value="H">H. books</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-32">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-D')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> D (original plans)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn D nhắc tới các bài giảng kêu gọi tìm kiếm thiết kế thuở ban đầu (*lost early designs*).</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-33">
+            <div class="q-top"><span class="q-num">33</span><span class="q-txt">Most valuable were 33. ________ revealing how the garden changed...</span><span id="stat-33"></span></div>
+            <select class="sel-box" id="ctrl-33" onchange="checkAnswer(33, 'A', 'p3-D')">
+              <option value="">-- Chọn từ (A - I) --</option>
+              <option value="A">A. drawings</option><option value="B">B. plants</option><option value="C">C. private life</option>
+              <option value="D">D. original plans</option><option value="F">F. craftsmen</option><option value="G">G. visitors</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-33">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-D')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> A (drawings)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn D chỉ ra điều giá trị nhất là các bản vẽ phác thảo chi tiết (*sketches / drawings*).</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-34">
+            <div class="q-top"><span class="q-num">34</span><span class="q-txt">we learn little of Johnston's 34. ________.</span><span id="stat-34"></span></div>
+            <select class="sel-box" id="ctrl-34" onchange="checkAnswer(34, 'C', 'p3-D')">
+              <option value="">-- Chọn từ (A - I) --</option>
+              <option value="B">B. plants</option><option value="C">C. private life</option><option value="F">F. craftsmen</option><option value="G">G. visitors</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-34">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-D')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> C (private life)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn D cho biết nhật ký hầu như không đả động đến chuyện tình cảm hay đời tư cá nhân.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-35">
+            <div class="q-top"><span class="q-num">35</span><span class="q-txt">stories of well-known 35. ________</span><span id="stat-35"></span></div>
+            <select class="sel-box" id="ctrl-35" onchange="checkAnswer(35, 'G', 'p3-E')">
+              <option value="">-- Chọn từ (A - I) --</option>
+              <option value="B">B. plants</option><option value="F">F. craftsmen</option><option value="G">G. visitors</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-35">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-E')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> G (visitors)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn E nhắc đến các vị khách nổi tiếng ghé thăm ăn trưa như Edith Wharton.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-36">
+            <div class="q-top"><span class="q-num">36</span><span class="q-txt">like how to contact 36. ________ in a foreign country.</span><span id="stat-36"></span></div>
+            <select class="sel-box" id="ctrl-36" onchange="checkAnswer(36, 'F', 'p3-E')">
+              <option value="">-- Chọn từ (A - I) --</option>
+              <option value="B">B. plants</option><option value="F">F. craftsmen</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-36">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-E')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> F (craftsmen)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn E ghi lại liên hệ của các thợ nề, thợ làm kính và phục chế đồ thủ công.</li></ul>
+            </div>
+          </div>
+
+          <div class="sec-banner">📌 Questions 37–40: YES / NO / NOT GIVEN</div>
+
+          <div class="q-card" id="card-37">
+            <div class="q-top"><span class="q-num">37</span><span class="q-txt">Gardening may be considered a form of art.</span><span id="stat-37"></span></div>
+            <select class="sel-box" id="ctrl-37" onchange="checkAnswer(37, 'YES', 'p3-G')">
+              <option value="">-- Chọn đáp án --</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-37">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-G')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> YES</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn G gọi thiết kế này là tác phẩm đỉnh cao của nền nghệ thuật nước Anh $\rightarrow$ <b>YES</b>.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-38">
+            <div class="q-top"><span class="q-num">38</span><span class="q-txt">The original design of Hidcote should be retained as closely as possible.</span><span id="stat-38"></span></div>
+            <select class="sel-box" id="ctrl-38" onchange="checkAnswer(38, 'NOT GIVEN', 'p3-G')">
+              <option value="">-- Chọn đáp án --</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-38">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-G')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> NOT GIVEN</div>
+              <ul class="exp-bullet-desc"><li><b>Lập luận:</b> Bài đọc không nêu quan điểm có bắt buộc phải giữ khư khư 100% nguyên trạng ban đầu hay không $\rightarrow$ <b>NOT GIVEN</b>.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-39">
+            <div class="q-top"><span class="q-num">39</span><span class="q-txt">Mawson was the most significant influence on Johnston's work.</span><span id="stat-39"></span></div>
+            <select class="sel-box" id="ctrl-39" onchange="checkAnswer(39, 'NO', 'p3-G')">
+              <option value="">-- Chọn đáp án --</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-39">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-G')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> NO</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn G bác bỏ ý kiến này và khẳng định Johnston không hề học theo tư duy truyền thống của Mawson $\rightarrow$ <b>NO</b>.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-40">
+            <div class="q-top"><span class="q-num">40</span><span class="q-txt">Hidcote reflects aspects of Johnston's life experience.</span><span id="stat-40"></span></div>
+            <select class="sel-box" id="ctrl-40" onchange="checkAnswer(40, 'YES', 'p3-G')">
+              <option value="">-- Chọn đáp án --</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-40">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-G')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> YES</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn G kết luận chính các chuyến đi khắp châu Âu và trải nghiệm đời sống đã tạo nên phong cách khu vườn $\rightarrow$ <b>YES</b>.</li></ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:10px;">
+      <button class="btn-timer" style="padding: 12px 36px; font-size: 15px; border-radius: 50px;" onclick="showResult()">🏁 NỘP BÀI THI & XEM TỔNG KẾT</button>
+    </div>
+
+    <footer class="footer-promo">
+      <div class="circle-icon">📞</div>
+      <div>
+        <div style="font-size: 15px; font-weight: 900;">
+          PH HS đăng kí học tiếng anh Khối 1 đến 12, IELTS vui lòng liên hệ Ms Lê Hằng English —
+          <span class="pill-badge">💬 zalo 0584 965 348</span>
+        </div>
+        <div style="font-size: 12.5px; font-weight: 700; opacity: 0.95; margin-top: 3px;">
+          📍 Online + Offline tại Linh Đàm · Hệ thống web bài tập độc lạ, chấm tự động, giải chi tiết siêu đẹp!
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal-bg" id="modalBg">
+    <div class="modal-box">
+      <div style="font-size: 50px;">🎉</div>
+      <h2 style="font-size: 22px; font-weight: 900; margin-top: 6px;">KẾT QUẢ BÀI THI</h2>
+      <div class="timer-txt" style="font-size: 40px; margin: 10px 0;" id="modalScoreTxt">0 / 40</div>
+      <p style="font-size: 14px; font-weight: 700; color: #475569; line-height: 1.45;" id="modalMsg"></p>
+      <button class="btn-timer" style="margin-top:14px; padding:10px 24px; border-radius:30px;" onclick="document.getElementById('modalBg').style.display='none'">Xem lại bài thi & Dẫn chứng</button>
+    </div>
+  </div>
+
+  <script>
+    const userState = {};
+    const totalQ = 40;
+
+    let actx = null;
+    function playAudio(ok) {
+      try {
+        if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+        if (actx.state === 'suspended') actx.resume();
+        const o = actx.createOscillator();
+        const g = actx.createGain();
+        o.connect(g); g.connect(actx.destination);
+        if (ok) {
+          o.type = 'sine'; o.frequency.setValueAtTime(587, actx.currentTime);
+          g.gain.setValueAtTime(0.15, actx.currentTime);
+          g.exponentialRampToValueAtTime(0.001, actx.currentTime + 0.6);
+          o.start(); o.stop(actx.currentTime + 0.6);
+        } else {
+          o.type = 'sawtooth'; o.frequency.setValueAtTime(160, actx.currentTime);
+          g.gain.setValueAtTime(0.15, actx.currentTime);
+          g.exponentialRampToValueAtTime(0.001, actx.currentTime + 0.4);
+          o.start(); o.stop(actx.currentTime + 0.4);
+        }
+      } catch(e) {}
+    }
+
+    function switchTab(num) {
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById('p-content-' + i).style.display = (i === num) ? 'block' : 'none';
+        document.getElementById('ex-content-' + i).style.display = (i === num) ? 'block' : 'none';
+        document.getElementById('tab' + i + '-btn').classList.toggle('active', i === num);
+      }
+      document.getElementById('passagePane').scrollTop = 0;
+      document.getElementById('exercisePane').scrollTop = 0;
+    }
+
+    function checkAnswer(qNum, correctVal, targetId) {
+      const sel = document.getElementById('ctrl-' + qNum);
+      const val = sel.value;
+      if (!val) return;
+      const ok = (val.trim().toLowerCase() === correctVal.trim().toLowerCase());
+      userState[qNum] = ok;
+      sel.className = 'sel-box ' + (ok ? 'correct' : 'wrong');
+      document.getElementById('stat-' + qNum).innerText = ok ? '✅' : '❌';
+      document.getElementById('exp-' + qNum).style.display = 'block';
+      playAudio(ok);
+      if (ok && window.confetti) confetti({ particleCount: 25, spread: 50 });
+      updateStats();
+    }
+
+    function checkFill(qNum, correctArr, targetId) {
+      const inp = document.getElementById('ctrl-' + qNum);
+      const val = inp.value.trim().toLowerCase();
+      if (!val) return;
+      const ok = correctArr.some(c => c.toLowerCase() === val);
+      userState[qNum] = ok;
+      inp.className = 'inp-box ' + (ok ? 'correct' : 'wrong');
+      document.getElementById('stat-' + qNum).innerText = ok ? '✅' : '❌';
+      document.getElementById('exp-' + qNum).style.display = 'block';
+      playAudio(ok);
+      if (ok && window.confetti) confetti({ particleCount: 25, spread: 50 });
+      updateStats();
+    }
+
+    function checkMC(qNum, selectedLetter, correctLetter, targetId) {
+      const ok = (selectedLetter === correctLetter);
+      userState[qNum] = ok;
+      const card = document.getElementById('card-' + qNum);
+      const btns = card.querySelectorAll('.mc-opt');
+      btns.forEach(b => {
+        const letter = b.innerText.trim()[0];
+        if (letter === correctLetter) b.className = 'mc-opt correct';
+        else if (letter === selectedLetter) b.className = 'mc-opt wrong';
+      });
+      document.getElementById('stat-' + qNum).innerText = ok ? '✅' : '❌';
+      document.getElementById('exp-' + qNum).style.display = 'block';
+      playAudio(ok);
+      if (ok && window.confetti) confetti({ particleCount: 25, spread: 50 });
+      updateStats();
+    }
+
+    function toggleT(id) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function locateTarget(targetId) {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('flash-target');
+        setTimeout(() => el.classList.remove('flash-target'), 2200);
+      }
+    }
+
+    function updateStats() {
+      const answered = Object.keys(userState).length;
+      const score = Object.values(userState).filter(x => x).length;
+      document.getElementById('scoreBadge').innerText = '★ ' + score + '/' + totalQ;
+      document.getElementById('countBadge').innerText = answered + '/' + totalQ + ' đã làm';
+      document.getElementById('progressFill').style.width = (answered / totalQ * 100) + '%';
+    }
+
+    document.addEventListener('mouseup', () => {
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+      if (sel.toString().trim().length < 1) return;
+      const range = sel.getRangeAt(0);
+      let container = range.commonAncestorContainer;
+      if (container.nodeType === 3) container = container.parentNode;
+      if (container.classList && container.classList.contains('user-highlighted')) {
+        const parent = container.parentNode;
+        while (container.firstChild) parent.insertBefore(container.firstChild, container);
+        parent.removeChild(container); parent.normalize(); sel.removeAllRanges(); return;
+      }
+      try {
+        const span = document.createElement('span');
+        span.className = 'user-highlighted';
+        range.surroundContents(span); sel.removeAllRanges();
+      } catch (e) {}
+    });
+
+    let sec = 1200, timer = null, isRun = false;
+    function toggleTimer() {
+      const btn = document.getElementById('btnTimer');
+      if (!isRun) {
+        isRun = true; btn.innerText = 'TẠM DỪNG';
+        timer = setInterval(() => {
+          if (sec > 0) {
+            sec--;
+            const m = String(Math.floor(sec/60)).padStart(2,'0');
+            const s = String(sec%60).padStart(2,'0');
+            document.getElementById('timerTxt').innerText = m + ':' + s;
+          } else {
+            clearInterval(timer);
+            alert('Đã hết giờ làm bài, vui lòng nộp bài nhé!');
+          }
+        }, 1000);
+      } else {
+        isRun = false; btn.innerText = 'TIẾP TỤC';
+        clearInterval(timer);
+      }
+    }
+
+    function showResult() {
+      const score = Object.values(userState).filter(x => x).length;
+      document.getElementById('modalScoreTxt').innerText = score + ' / ' + totalQ;
+      let msg = '';
+      if (score >= 35) msg = 'Xuất sắc tuyệt đỉnh! Kỹ năng đọc quét và tư duy Paraphrase của bạn đạt chuẩn 9.0!';
+      else if (score >= 28) msg = 'Rất tốt! Bạn nắm bắt ngữ cảnh và bẫy đề rất chắc tay.';
+      else if (score >= 20) msg = 'Khá tốt! Bạn đã đi được một nửa chặng đường, hãy xem lại các dẫn chứng câu chưa đúng nhé.';
+      else msg = 'Hãy luyện tập thêm! Nhớ mở bản dịch từng đoạn để hiểu sâu cấu trúc bài đọc nhé.';
+      document.getElementById('modalMsg').innerText = msg;
+      document.getElementById('modalBg').style.display = 'flex';
+      if (window.confetti) confetti({ particleCount: 80, spread: 80 });
+    }
+  </script>
+</body>
+</html>
